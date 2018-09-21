@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta id="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <script>
+
+            const checkResponse = (data, textStatus, jqXHR) => {
+                console.log(data)
+                console.log(textStatus)
+                console.log(jqXHR)
+            }
+
+
+            const sendData = () => {
+                console.log("batata")
+                const xhttp = new XMLHttpRequest()
+                const nome = document.getElementById("nome").value
+                const idade = document.getElementById("idade").value
+                const telefone = document.getElementById("telefone").value
+                const cpf = document.getElementById("cpf").value
+                const genero = document.getElementById("genero").value
+
+                const data = {
+                    nome: nome,
+                    idade: idade,
+                    telefone: telefone,
+                    cpf: cpf,
+                    genero: genero
+                }
+
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        console.log(this.responseText)
+                        alert("Cliente Cadastrado com sucesso")
+                        window.location.reload()
+                    }
+                }
+
+                xhttp.open("GET", `http://localhost:8000/setClientData/${nome}/${idade}/${telefone}/${cpf}/${genero}`, true)
+                xhttp.send()
+            }
+        </script>
+
+    </head>
+
+    <body>
+        <h1>Olá seja bem vindo</h1>
+
+        <p>O proposito desse site é coletar seus dados para posteriormente fazer uma ligação</p>
+        <p>e te oferecer promoções muito boas de telefonia</p>
+        <br>
+        <b>Ou seja fazer um mailing</b>
+        <br>
+
+        <p>Digite seus dados por favor</p>
+        <br>
+
+        <br>
+        <br>
+        <p>Para sua motivação clique
+            <a href="listaPessoas.html">aqui</a> para poder ver as pessoas que já foram cadastradas:</p>
+        <br>
+        <br>
+
+        <label>nome:</label>
+        <br>
+        <input type="text" id="nome">
+        <br>
+        <br>
+        <label>idade:</label>
+        <br>
+        <input type="text" id="idade">
+        <br>
+        <br>
+        <label>telefone:</label>
+        <br>
+        <input type="text" id="telefone">
+        <br>
+        <br>
+        <label>cpf:</label>
+        <br>
+        <input type="text" id="cpf">
+        <br>
+        <br>
+        <label>genero:</label>
+        <br>
+        <input type="text" id="genero">
+        <br>
+        <br>
+
+        <button type="button" onclick="sendData()"> Enviar seus dados</button>
+    </body>
+
+</html>

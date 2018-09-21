@@ -1,0 +1,9 @@
+/.metadata/
+
+package-lock\.json
+
+node_modules/
+
+\.recommenders/
+
+prova1/\.settings/

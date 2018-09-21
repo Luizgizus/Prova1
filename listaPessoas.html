@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta id="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <script>
+
+            const carregarUsers = () => {
+                console.log("batata")
+                const xhttp = new XMLHttpRequest()
+                const table = document.getElementById("usuariosBody")
+
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        const dados = JSON.parse(this.responseText)
+                        table.innerHTML = ""
+                        if (dados && dados.length) {
+                            for (let i = 0; i < dados.length; i++) {
+                                table.innerHTML += `
+                                <tr>
+                                    <td style="padding:10px">${i + 1}</td>
+                                    <td style="padding:10px">${dados[i].nome}</td>
+                                    <td style="padding:10px">${dados[i].idade}</td>
+                                    <td style="padding:10px">${dados[i].telefone}</td>
+                                    <td style="padding:10px">${dados[i].cpf}</td>
+                                    <td style="padding:10px">${dados[i].genero}</td>
+                                </tr>
+                            `
+                            }
+                        } else {
+                            table.innerHTML = `
+                                <tr>
+                                    <td style="padding:10px" colspan="6">Nenhum Dado Encontrado</td>
+                                </tr>
+                            `
+                        }
+                    }
+                }
+
+                xhttp.open("GET", `http://localhost:8000/clients`, true)
+                xhttp.send()
+            }
+        </script>
+
+    </head>
+
+    <body onload="carregarUsers()">
+        <h1>Lista de usuarios já cadastrados</h1>
+        <a href="index.html">voltar pagina inicial</a>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th style="padding:10px">#</th>
+                    <th style="padding:10px">nome</th>
+                    <th style="padding:10px">idade</th>
+                    <th style="padding:10px">telefone</th>
+                    <th style="padding:10px">cpf</th>
+                    <th style="padding:10px">genero</th>
+                </tr>
+            </thead>
+            <tbody id="usuariosBody">
+                <tr>
+                    <td style="padding:10px" colspan="6">Procurando por dados...</td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="index.html">voltar pagina inicial</a>
+    </body>
+
+</html>

@@ -1,0 +1,6 @@
+{"nome":"Luiz Henrique Silav Jesus","idade":"19","telefone":"31991708474","cpf":"13048993657","genero":"Maxculinu"}
+@@##@@{"nome":"Jonas maria anuario","idade":"22","telefone":"6667678687","cpf":"6786287678","genero":"Maxculinu"}
+@@##@@{"nome":"maria severina da silva sauro","idade":"99","telefone":"234567889","cpf":"46797535790","genero":"Feminina"}
+@@##@@{"nome":"bruna silva souzinha","idade":"12","telefone":"234509876","cpf":"15282652577","genero":"fluid gender"}
+@@##@@{"nome":"batatinha","idade":"fritinha","telefone":"gostosa","cpf":"deliciosa","genero":"amo"}
+@@##@@
